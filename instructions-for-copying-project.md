@@ -10,3 +10,5 @@ docker-compose build
 
 docker-compose up
 ```
+Navigate to 
+`http://127.0.0.1:5000/` or localhost:5000

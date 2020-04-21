@@ -26,13 +26,11 @@ the data field
 [
     {
         "identifier": "boro",
-        "name": "Queens",
-        "controller_gateway": "192.1.68.0.2"
+        "header_name": "AGE_GROUP",
     },
     {
         "identifier": "by-age",
-        "name": "COVID_CASE_RATE",
-        "controller_gateway": "192.168.0.9"
+        "header_name": "COVID_CASE_RATE",
     }
 ]
 ```
@@ -56,8 +54,7 @@ device will be overwritten.
 ```
 {
         "identifier": "by-age",
-        "name": "COVID_CASE_RATE",
-        "controller_gateway": "192.168.0.9"
+        "header_name": "COVID_CASE_RATE",
 }
 ```
 * Lookup details
@@ -70,7 +67,6 @@ device will be overwritten.
 ```
 {
         "identifier": "by-age",
-        "name": "COVID_CASE_RATE",
-        "controller_gateway": "192.168.0.9"
+        "header_name": "COVID_CASE_RATE",
 }
 ```
