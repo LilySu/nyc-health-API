@@ -1,72 +1,57 @@
 ## API for accessing Covid-19 Data from NYC Health 
 
+![nyc-health-api boro](https://i.imgur.com/Y8eKHBx.png)
+
 ### Usage
-All responses will have the form
+* Each .csv file in https://github.com/nychealth/coronavirus-data exists as the same name in a route.
+* ie. boro.csv exists as /boro
 
-```
-{
-    "data": "Mixed type holding the content of the response",
-    "message": "Description"
-}
-```
+### Routes
+`/boro`
+`/by-age`
+`/by-sex`
+`/case-hosp-death`
+`probable-confirmed-dod`
+`summary`
+`tests-by-zcta`
 
-Subsequent response definitions will only detail the expected value of 
-the data field
-
-##### List all devices
+##### Display boro
 ###### Definition
 
-`GET /devices`
+`GET /boro`
 
 ###### Response
-
-* `200 OK` on success
-
 ```
 [
-    {
-        "identifier": "boro",
-        "header_name": "AGE_GROUP",
-    },
-    {
-        "identifier": "by-age",
-        "header_name": "COVID_CASE_RATE",
-    }
+{
+BOROUGH_GROUP: "The Bronx",
+COVID_CASE_COUNT: 31130,
+COVID_CASE_RATE: 2115.28
+},
+{
+BOROUGH_GROUP: "Brooklyn",
+COVID_CASE_COUNT: 36699,
+COVID_CASE_RATE: 1352.06
+},
+{
+BOROUGH_GROUP: "Manhattan",
+COVID_CASE_COUNT: 17495,
+COVID_CASE_RATE: 927
+},
+{
+BOROUGH_GROUP: "Queens",
+COVID_CASE_COUNT: 42637,
+COVID_CASE_RATE: 1700.58
+},
+{
+BOROUGH_GROUP: "Staten Island",
+COVID_CASE_COUNT: 10405,
+COVID_CASE_RATE: 2075.01
+},
+{
+BOROUGH_GROUP: "Citywide",
+COVID_CASE_COUNT: 138435,
+COVID_CASE_RATE: 0
+}
 ]
-```
-
-##### Registering a new device
-###### Definition
-
-`POST /devices`
-
-###### Arguments
-
-* `"identifier":string` a globally unique identifier for this device
-* `"name":string `a friendly name for this device
-* `"controller_gateway":string` the IP address of the device's controller
-If a device with the given identifier already exists, the existing 
-device will be overwritten.
-
-###### Response
-
-* `201 Created` on success
-```
-{
-        "identifier": "by-age",
-        "header_name": "COVID_CASE_RATE",
-}
-```
-* Lookup details
-`GET /feature/<identifier>`
-
-###### Response
-
-* `404 Not Found` if the device does not exist
-* `200 OK` on success
-```
-{
-        "identifier": "by-age",
-        "header_name": "COVID_CASE_RATE",
-}
 ```
