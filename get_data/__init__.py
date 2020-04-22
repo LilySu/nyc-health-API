@@ -1,20 +1,12 @@
 from flask import Flask
+from flask import jsonify
+import pandas as pd
 import markdown
+import requests
 import os
 
+
 app = Flask(__name__)
-
-def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        db = g._database = shelve.open("data.db")
-    return db
-
-@app.teardown_appcontext
-def teardown_db(exception):
-    db = getattr(g, '_database', None)
-    if db is not None:
-        db.close()
 
 @app.route("/")
 def index():
@@ -22,38 +14,37 @@ def index():
         content = markdown_file.read()
         return markdown.markdown(content)
 
-# Class for each endpoint 
-# Function for each method we accept
-class CoronavirusData(Resource):
-    def get(self):
-        shelf = get_db()
-        keys = list(shelf.keys())
+@app.route("/boro")
+def boro():
+    df = pd.read_csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/boro.csv')
+    return jsonify(df.to_dict('records')),200
 
-        datalist = []
-        for key in keys:
-            datalist.append(shelf[key])
-        return {'message':'Success', 'data':datalist}, 200
+@app.route("/by-age")
+def byage():
+    df = pd.read_csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/by-age.csv')
+    return jsonify(df.to_dict('records')),200
 
-    def post(self):
-        parser = reqparse.RequestParser()
+@app.route("/by-sex")
+def boro():
+    df = pd.read_csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/by-sex.csv')
+    return jsonify(df.to_dict('records')),200
 
-        parser.add_argument('identifier', required= True)
-        parser.add_argument('header_name', required= True)
+@app.route("/case-hosp-death")
+def casehospdeath():
+    df = pd.read_csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/case-hosp-death.csv')
+    return jsonify(df.to_dict('records')),200
 
-        args = parser.parse_args()
-        shelf = get_db()
-        shelf[args['identifier']] = args
+@app.route("/probable-confirmed-dod")
+def probableconfirmeddod():
+    df = pd.read_csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/probable-confirmed-dod.csv')
+    return jsonify(df.to_dict('records')),200
 
-        return {'message': 'identifier understood','data':args}, 201
+@app.route("/summary")
+def summary():
+    df = pd.read_csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/summary.csv')
+    return jsonify(df.to_dict('records')),200
 
-class Data(Resource):
-    def get(self, identifier):
-        shelf = get_db()
-
-        if not (identifier in shelf):
-            return {'message': 'data not found','data':{}}, 404
-        return {'message': 'data found','data':shelf[identifier], 200
-
-api.add_resource(CoronavirusData, '/datalist')
-api.add_resource(Data, '/data/<string:identifier>')
-
+@app.route("/tests-by-zcta")
+def testsbyzcta.():
+    df = pd.read_csv('https://raw.githubusercontent.com/nychealth/coronavirus-data/master/tests-by-zcta.csv')
+    return jsonify(df.to_dict('records')),200
