@@ -2,7 +2,7 @@
 
 ###### Activate Virtual Environment
 ```
-source env//Scripts//activate
+source env/Scripts/activate
 ```
 ###### Run Flask App on Docker-Compose
 ```

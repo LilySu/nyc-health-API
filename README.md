@@ -1,12 +1,13 @@
 ## API for accessing Covid-19 Data from NYC Health 
 
 <p align="center">
-  <img width="460" height="300" src="https://i.imgur.com/8QizuMn.png">
+  <img width="360" height="200" src="https://i.imgur.com/8QizuMn.png">
 </p>
 
 ### Usage
 * Each .csv file in https://github.com/nychealth/coronavirus-data exists as the same name in a route.
 * ie. boro.csv exists as /boro
+* If the value is 0, it might be because it was a NaN/Null
 
 ### Routes
 * `/boro`
