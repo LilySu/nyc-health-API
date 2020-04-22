@@ -1,6 +1,8 @@
 ## API for accessing Covid-19 Data from NYC Health 
 
-![nyc-health-api boro](https://i.imgur.com/Y8eKHBx.png)
+<p align="center">
+  <img width="460" height="300" src="https://i.imgur.com/8QizuMn.png">
+</p>
 
 ### Usage
 * Each .csv file in https://github.com/nychealth/coronavirus-data exists as the same name in a route.
