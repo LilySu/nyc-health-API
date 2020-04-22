@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import jsonify
 import pandas as pd
-# import markdown
+import markdown
 import requests
 import os
 
@@ -10,10 +10,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    # with open(os.path.dirname(app.root_path) + '/README.md','r') as markdown_file:
-    #     content = markdown_file.read()
-    #     return markdown.markdown(content)
-    return "hello"
+    with open(os.path.dirname(app.root_path) + '/README.md','r') as markdown_file:
+        content = markdown_file.read()
+        return markdown.markdown(content)
 
 @app.route("/boro")
 def boro():
