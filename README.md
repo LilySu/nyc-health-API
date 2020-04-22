@@ -11,14 +11,21 @@
 
 ### Routes
 * `/boro`
+* https://nyc-health-api.herokuapp.com/boro
 * `/by-age`
+* https://nyc-health-api.herokuapp.com/by-age
 * `/by-sex`
+* https://nyc-health-api.herokuapp.com/by-sex
 * `/case-hosp-death`
+* https://nyc-health-api.herokuapp.com/case-hosp-death
 * `/probable-confirmed-dod`
+* https://nyc-health-api.herokuapp.com/probable-confirmed-dod
 * `/summary`
+* https://nyc-health-api.herokuapp.com/summary
 * `/tests-by-zcta`
+* https://nyc-health-api.herokuapp.com/tests-by-zcta
 
-#### Display boro
+#### Example of boro
 ##### Definition
 
 `GET /boro`
@@ -58,3 +65,4 @@ COVID_CASE_RATE: 0
 }
 ]
 ```
+
