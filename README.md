@@ -66,3 +66,4 @@ COVID_CASE_RATE: 0
 ]
 ```
 
+This project is licensed under the terms of the MIT license.
