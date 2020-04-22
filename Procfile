@@ -1,2 +1,2 @@
-web: gunicorn deploy:run
+web: gunicorn get_data:app
 
