@@ -7,20 +7,20 @@
 * ie. boro.csv exists as /boro
 
 ### Routes
-`/boro`
-`/by-age`
-`/by-sex`
-`/case-hosp-death`
-`probable-confirmed-dod`
-`summary`
-`tests-by-zcta`
+* `/boro`
+* `/by-age`
+* `/by-sex`
+* `/case-hosp-death`
+* `/probable-confirmed-dod`
+* `/summary`
+* `/tests-by-zcta`
 
-##### Display boro
-###### Definition
+#### Display boro
+##### Definition
 
 `GET /boro`
 
-###### Response
+##### Response
 ```
 [
 {
